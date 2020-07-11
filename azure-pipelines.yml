@@ -32,7 +32,7 @@ steps:
   displayName: 'Write build info'
   workingDirectory: $(wwwrootDir)
 
-- task: DotNetCoreCLI@2
+- task: UseDotNet@2
   displayName: 'Restore project dependencies'
   inputs:
     command: 'restore'
@@ -45,6 +45,11 @@ steps:
 - template: templates/build.yml
   parameters:
     buildConfiguration: 'Release'
+
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: $(Build.SourcesDirectory)
+    targetFolder: $(Build.ArtifactStagingDirectory)
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
