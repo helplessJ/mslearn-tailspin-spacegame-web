@@ -17,9 +17,3 @@ steps:
     publishWebProjects: false
     arguments: '--no-build --configuration ${{ parameters.buildConfiguration }} --output $(Build.ArtifactStagingDirectory)/${{ parameters.buildConfiguration }}'
     zipAfterPublish: true
-
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: drop'
-  condition: succeeded()
-  inputs:
-    pathToPublish: '$(Build.ArtifactStagingDirectory)/${{ parameters.buildConfiguration }}'
