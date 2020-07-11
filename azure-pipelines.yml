@@ -50,7 +50,8 @@ steps:
   inputs:
     command: 'test'
     arguments: '--no-build --configuration $(buildConfiguration)'
-    publishTestResults: publishTestResultsprojects: '**/*.Tests.csproj'
+    publishTestResults: true
+    publishTestResultsprojects: '**/*.Tests.csproj'
 
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - $(buildConfiguration)'
