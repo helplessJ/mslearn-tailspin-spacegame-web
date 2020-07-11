@@ -17,7 +17,7 @@ variables:
   dotnetSdkVersion: '3.1.300'
 
 steps:
-- task: DotNetCoreCLI@3
+- task: UseDotNet@2
   displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
   inputs:
     version: '$(dotnetSdkVersion)'
@@ -37,7 +37,7 @@ steps:
   displayName: 'Write build info'
   workingDirectory: $(wwwrootDir)
 
-- task: DotNetCoreCLI@3
+- task: UseDotNet@2
   displayName: 'Restore project dependencies'
   inputs:
     command: 'restore'
