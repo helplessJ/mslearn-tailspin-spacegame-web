@@ -46,11 +46,6 @@ steps:
   parameters:
     buildConfiguration: 'Release'
 
-- task: CopyFiles@2
-  inputs:
-    sourceFolder: $(Build.SourcesDirectory)
-    targetFolder: $(Build.ArtifactStagingDirectory)
-
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
