@@ -22,4 +22,4 @@ steps:
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
   inputs:
-    pathToPublish: '${{ parameters.buildConfiguration }} --output $(Build.ArtifactStagingDirectory)/${{ parameters.buildConfiguration }}'
+    pathToPublish: '$(Build.ArtifactStagingDirectory)/${{ parameters.buildConfiguration }}'
